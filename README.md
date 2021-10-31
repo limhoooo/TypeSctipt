@@ -16,7 +16,7 @@ npm install -g typescript
 tsc -v
 
 ex:) 
-tsc main.ts 입력하면
+tsc main.ts 입력하면<br />
 main.js 로 컴파일 및 파일생성
 
 ### 워치모드
