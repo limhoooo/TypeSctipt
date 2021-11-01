@@ -6,7 +6,7 @@
      * Object: function, array...
      */
 
-    // nuumber
+    // number
     const num: number = 1;
     const float: number = 1.1;
 
@@ -36,7 +36,6 @@
     let notSure: unknown = 0; // 가능한 사용 X
     notSure = 1;
     notSure = 'ss'
-
 
     // any // X
     let anything: any = 0; // 가능한 사용 X
