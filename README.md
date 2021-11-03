@@ -28,3 +28,5 @@ npm install -g ts-node
 ex:)<br />
 ts-node main.ts 명령어 실행하면<br />
 컴파일 및 파일생성 안하고 터미널에서 바로 main.ts 실행가능
+작동 안될시<br />
+npm install @types/node --save-dev
