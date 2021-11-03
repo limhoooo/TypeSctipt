@@ -5,45 +5,38 @@
         push(value: string): void;
         pop(): string;
     }
-
     type StackNode = {
-        // 값
-        readonly value: string;
-        // 연결 값
-        readonly next?: StackNode;
+        value: string;
+        head?: StackNode;
     }
-
     class StackImpl implements Stack {
         private _size: number = 0;
-        private head?: StackNode;
-
-        get size() {
+        private _head?: StackNode;
+        public get size(): number {
             return this._size;
         }
 
         push(value: string) {
-            // node
-            const node: StackNode = { value, next: this.head };
-            this.head = node;
-            // stack의 size 가 1씩 증가
+            const node: StackNode = { value, head: this._head }
+            this._head = node;
             this._size++;
         }
         pop(): string {
-            if (this.head == null) {
+            if (this._head == null) {
                 throw new Error("값이 없음.");
             }
-            const node = this.head;
-            this.head = node.next;
+            const node = this._head;
+            this._head = node.head;
             this._size--;
-            return node.value;
+            return node.value
         }
+
     }
 
     const stack = new StackImpl();
     stack.push('1');
     stack.push('2');
     stack.push('3');
-    stack.push('4');
     while (stack.size !== 0) {
         console.log(stack.pop());
 
