@@ -62,53 +62,30 @@
             return this.extract(shots);
         }
     }
-
-    class CheapMilkSteamer {
-        private steamMilk() {
-            console.log('milk');
-        }
-        makeMile(cup: CoffeeCup): CoffeeCup {
-            this.steamMilk();
-            return {
-                ...cup,
-                hasMilk: true
-            }
-        }
-    }
-    class AutomaicSugarMixer {
-        private getSuger() {
-            console.log('설탕 갖고옴');
-            return true
-        }
-
-        addSuger(cup: CoffeeCup): CoffeeCup {
-            const sugar = this.getSuger();
-            return {
-                ...cup,
-                hasSugar: sugar
-            }
-        }
-    }
     class CaffeLatteMachine extends CoffeeMachine {
         // 자식 클래스에서 생성자를 추가 하고 싶으면
         // 무조건 부모 클래스의 생성자도 호출 해야함
         // 별도로 함수 호출이 아닌 super 로 호출 가능
-        constructor(beans: number, private coffeeName: string,
-            private milkFother: CheapMilkSteamer) {
+        constructor(beans: number, private coffeeName: string) {
             super(beans)
         }
         // overwring
         // 자식 클래스에서 부모클래에 있는 함수를 덮어 씌우는것
-
+        private steamMilk() {
+            console.log('milk');
+        }
         makeCoffee(shots: number): CoffeeCup {
             // supuer
             // 상속하는 부모에 있는 함수를 호출가능
             const coffee = super.makeCoffee(shots);
-            return this.milkFother.makeMile(coffee);
+            this.steamMilk();
+            return {
+                ...coffee,
+                hasMilk: true,
+            }
         }
     }
     class SweetCoffeeMaker extends CoffeeMachine {
-
         makeCoffee(shots: number): CoffeeCup {
             const coffee = super.makeCoffee(shots);
             return {
@@ -117,9 +94,6 @@
             }
         }
     }
-    class SweetCaffeLatteMachine extends CoffeeMachine {
-
-    }
 
     // 내부적으로 구현된 다양한 클래스들이 
     // 한가지의 인터페이스를 구현하거나
@@ -127,18 +101,18 @@
     // 동일한 함수를 어떤 클래스인지 구분하지 않고
     // 공통된 api 를 호출 할 수 있다.
     // Type CoffeeMaker 는 부모 클래스의 interface
-    // const machines: CoffeeMaker[] = [
-    //     new CoffeeMachine(16),
-    //     new CaffeLatteMachine(16, '1'),
-    //     new SweetCoffeeMaker(16),
-    //     new CoffeeMachine(16),
-    //     new CaffeLatteMachine(16, '1'),
-    //     new SweetCoffeeMaker(16),
-    // ]
-    // machines.forEach(machine => {
-    //     console.log('-------------');
-    //     console.log(machine.makeCoffee(2));
-    //     console.log('-------------');
+    const machines: CoffeeMaker[] = [
+        new CoffeeMachine(16),
+        new CaffeLatteMachine(16, '1'),
+        new SweetCoffeeMaker(16),
+        new CoffeeMachine(16),
+        new CaffeLatteMachine(16, '1'),
+        new SweetCoffeeMaker(16),
+    ]
+    machines.forEach(machine => {
+        console.log('-------------');
+        console.log(machine.makeCoffee(2));
+        console.log('-------------');
 
-    // })
+    })
 }
