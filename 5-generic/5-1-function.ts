@@ -19,4 +19,5 @@
     }
     const number: number = checkNotNull(123);
     const boal: boolean = checkNotNull(true);
+    const string = checkNotNull('true');
 }
