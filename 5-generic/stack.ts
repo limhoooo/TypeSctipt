@@ -18,7 +18,7 @@
 
         push(value: T) {
             console.log(value);
-            const node: StackNode<T> = { value, head: this._head }
+            const node = { value, head: this._head }
             this._head = node;
             this._size++;
         }
@@ -34,12 +34,19 @@
 
     }
 
-    const stack = new StackImpl();
+    const stack = new StackImpl<string>();
     stack.push('1');
-    stack.push(2);
+    stack.push('2');
     stack.push('3');
     while (stack.size !== 0) {
         console.log(stack.pop());
     }
 
+    const stack2 = new StackImpl<number>();
+    stack2.push(1);
+    stack2.push(2);
+    stack2.push(3);
+    while (stack2.size !== 0) {
+        console.log(stack2.pop());
+    }
 }
