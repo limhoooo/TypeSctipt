@@ -37,6 +37,7 @@ type ZPosType = PositionType & { z: number };
 
 // 차이점 
 
+
 // 인터페이스는 같은이름으로 합쳐서 사용 할 수 있다.
 // 다른곳에서 사용할땐 x y z 를 다 불러와야함.
 interface test {
