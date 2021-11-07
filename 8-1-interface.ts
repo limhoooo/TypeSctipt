@@ -29,6 +29,7 @@ class Pos2 implements PositionInterface {
 }
 
 // Extends
+
 interface ZPosInter extends PositionInterface {
     z: 1;
 }
