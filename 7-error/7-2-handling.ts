@@ -8,6 +8,7 @@ class NetworkClient {
     }
 }
 
+
 class UserService {
     constructor(private client: NetworkClient) {
 

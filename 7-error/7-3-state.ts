@@ -5,6 +5,7 @@
         result: 'fail';
         reason: 'offlin' | 'down' | 'timeout'
     }
+
     type SuccessState = {
         result: 'success'
     }
