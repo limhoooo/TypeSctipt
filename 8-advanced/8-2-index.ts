@@ -1,4 +1,7 @@
 {
+    // index type
+
+
     type Animal = {
         name: string;
         age: 10;
