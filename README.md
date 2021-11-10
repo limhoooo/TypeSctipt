@@ -20,7 +20,12 @@ tsc main.ts 입력하면<br />
 main.js 로 컴파일 및 파일생성
 
 ### 워치모드
+tsc -w
+or
 tsc main.ts -w
+
+### tsconfig.json 생성
+tsc --init
 
 ### ts-node 설치 명령어
 npm install -g ts-node
